@@ -396,25 +396,110 @@ table.grid td.tw{min-width:260px;max-width:none;width:38%;white-space:normal}
 .ab-go{margin-left:auto;font:600 13px var(--f-body);color:#ffb3b3}
 .kpi.alarm{border-color:rgba(242,122,122,.45)}
 @media (max-width:640px){ .t-head .toolbar{justify-content:stretch} .t-head .toolbar .search{max-width:none} table.grid td,table.grid th{padding:10px} }
+
+/* ================= v6: visual limpo ================= */
+body{background:#0a1511}
+.topbar{background:#0a1511;border-bottom:1px solid var(--line);backdrop-filter:none;-webkit-backdrop-filter:none;padding:14px 24px}
+.brand{gap:12px}
+.mark{width:34px;height:34px;border-radius:9px;box-shadow:none}
+.brand h1{font:600 18px/1.2 var(--f-disp)}
+.brand p{margin:2px 0 0;font-size:12.5px;color:var(--muted)}
+.pill-sample{font:500 11px/1 var(--f-body);letter-spacing:0;text-transform:none;padding:5px 9px}
+.btn.primary{box-shadow:none}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--text-2)}
+.btn.ghost:hover{background:var(--surface-2);color:var(--text)}
+.wrap{max-width:1240px;padding:24px 24px 64px;gap:20px}
+#dash{display:grid;gap:20px}
+#dash[hidden]{display:none!important}
+.card{background:var(--surface);box-shadow:none}
+
+/* resumo */
+.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.s-item{display:grid;gap:4px;align-content:start;padding:18px 22px;border:0;border-left:1px solid var(--line);background:none;text-align:left;color:inherit;font:inherit;min-width:0}
+.s-item:first-child{border-left:0}
+.s-lbl{font-size:13px;color:var(--text-2)}
+.s-val{font:600 30px/1.1 var(--f-disp);font-variant-numeric:tabular-nums;color:var(--text)}
+.s-val.emp{color:#9cc5f5}
+.s-note{font-size:12px;color:var(--muted)}
+.s-alert{cursor:pointer}
+.s-alert:hover{background:var(--surface-2)}
+.s-alert.on{background:rgba(242,122,122,.08)}
+.s-alert.on .s-val,.s-alert.on .s-lbl{color:#ff9c9c}
+
+/* controles */
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.seg{display:inline-flex;gap:4px;padding:4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;flex-wrap:wrap}
+.seg button{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 14px;border:0;border-radius:9px;background:none;color:var(--text-2);font:500 13.5px var(--f-body);cursor:pointer}
+.seg button b{font:600 12px/1 var(--f-body);font-variant-numeric:tabular-nums;padding:3px 7px;border-radius:999px;background:var(--surface-3);color:var(--text-2)}
+.seg button:hover{color:var(--text)}
+.seg button[aria-selected="true"]{background:var(--surface-3);color:var(--text)}
+.seg button[aria-selected="true"] b{background:var(--accent);color:var(--accent-ink)}
+.seg button.is-danger b{background:rgba(242,122,122,.18);color:#ff9c9c}
+.seg button.is-danger[aria-selected="true"]{background:rgba(242,122,122,.14);color:#ffb3b3}
+.seg button.is-danger[aria-selected="true"] b{background:var(--crit);color:#2a0707}
+.ctl-right{display:flex;flex-wrap:wrap;gap:8px;flex:1 1 440px;justify-content:flex-end}
+.ctl-right .search{position:relative;flex:1 1 240px;max-width:340px}
+.ctl-right .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted);pointer-events:none}
+.ctl-right .search .inp{padding-left:38px}
+.ctl-right select.inp{width:auto;flex:0 1 200px}
+.controls .f-foot{flex-basis:100%;margin:0}
+
+/* cartões */
+.plist{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.pc{display:grid;gap:16px;align-content:start;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:14px;text-align:left;color:inherit;font:inherit;cursor:pointer;min-width:0}
+.pc:hover{border-color:var(--line-strong);background:#0e2019}
+.pc.dr{border-color:rgba(242,122,122,.4)}
+.pc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.pc-name{display:grid;gap:3px;min-width:0}
+.pc-name b{font:600 16px/1.3 var(--f-disp);color:var(--text);text-wrap:balance}
+.pc-name small{font-size:12px;color:var(--muted)}
+.pc-days{display:grid;justify-items:end;gap:4px;flex:none;text-align:right}
+.pc-num{font:600 34px/1 var(--f-disp);font-variant-numeric:tabular-nums;color:var(--dc)}
+.pc-num small{font:500 13px var(--f-body);margin-left:4px;color:var(--dc);opacity:.85}
+.pc-sit{font:600 11.5px/1 var(--f-body);padding:4px 8px;border-radius:999px;background:var(--db);color:var(--dc);border:1px solid var(--dl);white-space:nowrap}
+.pc.dn .pc-num{font-size:26px}
+.pc-figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding-top:14px;border-top:1px solid var(--line)}
+.pc-figs span{display:grid;gap:3px;min-width:0;align-content:end}
+.pc-figs small{font-size:12px;color:var(--muted);white-space:nowrap}
+.pc-figs b{font:600 18px/1.2 var(--f-disp);font-variant-numeric:tabular-nums;color:var(--text);overflow:hidden;text-overflow:ellipsis}
+.pc-figs b i{font:400 12px var(--f-body);font-style:normal;color:var(--muted)}
+.pc-figs b.emp{color:#9cc5f5}
+.pc-figs b.neg{color:#ff9c9c}
+.pc-bar{display:block;height:6px;margin-top:-6px;border-radius:3px;background:rgba(52,217,160,.45);overflow:hidden}
+.pc-bar i{display:block;height:100%;background:#6aa8f0}
+.plist-empty{grid-column:1/-1;margin:0;padding:48px 16px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line-strong);border-radius:14px}
+.pager{justify-content:center;gap:16px;margin:0}
+.foot-note{justify-content:center}
+.banner{border-radius:12px}
+@media (max-width:900px){ .summary{grid-template-columns:repeat(2,minmax(0,1fr))} .s-item:nth-child(3){border-left:0} .s-item:nth-child(n+3){border-top:1px solid var(--line)} }
+@media (max-width:640px){
+  .topbar{padding:12px 16px}
+  .wrap{padding:16px 16px 48px}
+  .s-item{padding:14px 16px}
+  .s-val{font-size:24px}
+  .ctl-right{flex-basis:100%;justify-content:stretch}
+  .ctl-right .search{max-width:none;flex-basis:100%}
+  .ctl-right select.inp{flex:1 1 45%}
+  .seg{width:100%}
+  .seg button{flex:1 1 auto;justify-content:center;padding:0 10px}
+  .plist{grid-template-columns:minmax(0,1fr)}
+}
 @media (prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} }
 </style>
 
 <header class="topbar">
   <div class="brand">
-    <span class="mark" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
-    <div><h1>Painel Estoque &amp; OS</h1><p>Estoque · Venda empenhada · Dias em estoque</p></div>
+    <span class="mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+    <div><h1>Estoque de produtos</h1><p id="upd">—</p></div>
+    <span class="pill-sample" id="pill-sample" hidden>Exemplo</span>
   </div>
-  <span class="pill-sample" id="pill-sample" hidden>Dados de exemplo</span>
-  <div class="upd" id="upd"><span>Última atualização</span><b>—</b></div>
   <div class="actions">
-    <button class="btn primary" id="btn-import" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3"/></svg>Importar planilha</button>
-    <button class="btn" id="btn-refresh" type="button" title="Recalcula tudo com a data e hora atuais"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg><span class="lbl-hide">Atualizar</span></button>
     <div class="menu-wrap">
-      <button class="btn" id="btn-export" type="button" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 0L8 7m4-4 4 4M4 13v7h16v-7"/></svg><span class="lbl-hide">Exportar</span></button>
+      <button class="btn ghost" id="btn-export" type="button" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 0L8 7m4-4 4 4M4 13v7h16v-7"/></svg><span class="lbl-hide">Exportar</span></button>
       <div class="menu" id="export-menu" hidden></div>
     </div>
-    <button class="btn icon bell" id="btn-bell" type="button" aria-label="Notificações de perigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4zM10 21h4"/></svg><span class="cnt" id="bell-cnt" hidden>0</span></button>
-    <button class="btn icon" id="btn-settings" type="button" aria-label="Configurações"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+    <button class="btn ghost icon" id="btn-settings" type="button" aria-label="Configurações"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></button>
+    <button class="btn primary" id="btn-import" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3"/></svg>Importar planilha</button>
   </div>
 </header>
 
@@ -432,25 +517,25 @@ table.grid td.tw{min-width:260px;max-width:none;width:38%;white-space:normal}
     </div>
   </section>
 
-  <div id="dash" style="display:grid;gap:16px">
-    <section class="kpis" id="kpis" aria-label="Totais"></section>
-    <div id="alertbar"></div>
-    <section class="card" aria-label="Produtos">
-      <div class="t-head">
-        <h2 class="t-title">Produtos <span class="c" id="tc-mat"></span></h2>
-        <div class="toolbar" id="filters">
-          <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input class="inp" id="f-q" type="search" placeholder="Buscar produto ou código" autocomplete="off" aria-label="Buscar"></div>
-          <select class="inp" id="f-risco" aria-label="Dias em estoque"></select>
-          <select class="inp" id="f-cat" aria-label="Categoria"></select>
-          <span class="t-exp"><button class="btn sm ghost" type="button" data-texp="xlsx">Excel</button><button class="btn sm ghost" type="button" data-texp="csv">CSV</button><button class="btn sm ghost" type="button" data-texp="pdf">PDF</button></span>
-        </div>
+  <div id="dash">
+    <section class="summary" id="kpis" aria-label="Totais"></section>
+
+    <section class="controls" id="filters" aria-label="Filtros">
+      <div class="seg" id="seg" role="tablist" aria-label="Situação"></div>
+      <div class="ctl-right">
+        <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input class="inp" id="f-q" type="search" placeholder="Buscar produto ou código" autocomplete="off" aria-label="Buscar produto"></div>
+        <select class="inp" id="f-cat" aria-label="Categoria"></select>
+        <select class="inp" id="f-sort" aria-label="Ordenar"></select>
       </div>
-      <div class="f-foot" id="f-foot"><div class="chips" id="chips"></div><button class="btn sm ghost" id="f-clear" type="button">Limpar</button></div>
-      <div class="tbl-wrap" id="tbl-wrap"></div>
-      <div class="pager" id="pager"></div>
-      <div hidden><div id="tabs"></div><span id="tc-os"></span><span id="tc-mov"></span><div id="t-tools"></div><select id="f-etapa"></select><select id="f-status"></select><select id="f-prod"></select><select id="f-mov"></select><select id="f-periodo"></select><div id="f-more"></div><button id="f-toggle" type="button"></button><div id="perigo"></div><div id="leg-cob"></div><span id="h-cob"></span><span id="h-stock"></span><span id="h-cons"></span></div>
+      <div class="f-foot" id="f-foot"><div class="chips" id="chips"></div><button class="btn sm ghost" id="f-clear" type="button">Limpar filtros</button></div>
     </section>
-    <p class="foot-note"><button class="linkbtn" type="button" id="btn-method">Como calculamos</button><span id="foot-info"></span></p>
+
+    <section class="plist" id="plist" aria-label="Produtos"></section>
+    <div class="pager" id="pager"></div>
+
+    <p class="foot-note"><button class="linkbtn" type="button" id="btn-method">Como os dias em estoque são calculados</button><span id="foot-info"></span></p>
+
+    <div hidden><select id="f-risco"></select><div id="tabs"></div><span id="tc-mat"></span><span id="tc-os"></span><span id="tc-mov"></span><div id="t-tools"></div><div id="tbl-wrap"></div><select id="f-etapa"></select><select id="f-status"></select><select id="f-prod"></select><select id="f-mov"></select><select id="f-periodo"></select><div id="f-more"></div><button id="f-toggle" type="button"></button><div id="perigo"></div><div id="alertbar"></div><div id="leg-cob"></div><span id="h-cob"></span><span id="h-stock"></span><span id="h-cons"></span><span id="bell-cnt"></span></div>
   </div>
 </main>
 <input type="file" id="file-in" accept=".xlsx,.xls,.csv,.txt" multiple hidden>
@@ -669,7 +754,7 @@ const S={
   settings:Object.assign({},DEFAULT_SETTINGS),
   filters:{q:'',cat:'',status:'',risco:'',etapa:'',prod:'',mov:'',periodo:'90',alert:''},
   tab:'mat',sort:{mat:{k:'cob',d:1},cob:{k:'dias',d:1},os:{k:'os',d:-1},mov:{k:'date',d:-1}},
-  page:1,pageSize:50,pending:[],importMode:'replace',notifDismissed:false
+  page:1,pageSize:30,pending:[],importMode:'replace',notifDismissed:false
 };
 const LS_DATA='painel-estoque-os:v1', LS_SET='painel-estoque-os:settings', LS_SEEN='painel-estoque-os:perigo-vistos';
 
@@ -929,7 +1014,7 @@ function renderFilterControls(){
   const chips=[];
   const lab={cat:'Categoria',status:'Status',risco:'Cobertura',etapa:'Etapa',prod:'Produção',mov:'Movimentação',q:'Busca',alert:'Alerta'};
   const val=(k,v)=>{ const sel=$('#f-'+k); if(k==='q') return '“'+v+'”'; if(k==='alert') return ALERT_LABEL[v]||v; const o=sel&&Array.from(sel.options).find(x=>x.value===v); return o?o.textContent:v; };
-  ['q','cat','status','risco','etapa','prod','mov','alert'].forEach(k=>{ if(f[k]) chips.push('<span class="chip">'+esc(lab[k])+': '+esc(val(k,f[k]))+'<button type="button" data-clear="'+k+'" aria-label="Remover filtro">×</button></span>'); });
+  ['cat','status','etapa','prod','mov','alert'].forEach(k=>{ if(f[k]) chips.push('<span class="chip">'+esc(lab[k])+': '+esc(val(k,f[k]))+'<button type="button" data-clear="'+k+'" aria-label="Remover filtro">×</button></span>'); });
   $('#chips').innerHTML=chips.join('');
   $('#f-clear').hidden=!chips.length;
   $('#f-toggle').textContent=$('#f-more').hidden?'Mais filtros':'Menos filtros';
@@ -1186,15 +1271,70 @@ function openMethod(){
   ].map(([h,p])=>'<div><h3>'+h+'</h3><p>'+p+'</p></div>').join('')+'</div>');
 }
 
+
+/* ================= v6: cartões de produto ================= */
+function sitOf(m){
+  const zero=m.disponivel!=null&&m.disponivel<=0;
+  if(zero) return {k:'perigo',cls:'dr',num:'0',unit:'dias',label:m.disponivel<0?'Estoque insuficiente':'Sem estoque disponível'};
+  if(m.cob.ok){ const d=Math.floor(m.cob.dias);
+    if(m.risk==='perigo') return {k:'perigo',cls:'dr',num:NF0.format(d),unit:d===1?'dia':'dias',label:'Perigo'};
+    if(m.soon) return {k:'normal',cls:'dy',num:NF0.format(d),unit:'dias',label:'Atenção'};
+    return {k:'normal',cls:'dg',num:NF0.format(d),unit:'dias',label:'Normal'}; }
+  return {k:'semdados',cls:'dn',num:'—',unit:'',label:m.cob.noCons?'Sem consumo no período':'Sem histórico de consumo'};
+}
+function renderSummary(fm){
+  const ws=fm.filter(m=>m.estoque!=null), un=new Set(ws.map(m=>m.unidade||'?'));
+  const est=ws.reduce((a,m)=>a+m.estoque,0), emp=fm.reduce((a,m)=>a+(m.empenhado||0),0), disp=ws.reduce((a,m)=>a+m.disponivel,0);
+  const per=fm.filter(m=>m.risk==='perigo').length, hasEmp=S.model.flags.empenho;
+  const mix=un.size>1?'<span class="s-note">soma de '+un.size+' unidades</span>':'';
+  $('#kpis').innerHTML=
+    '<div class="s-item"><span class="s-lbl">Estoque</span><span class="s-val">'+(ws.length?fq(est):'N/D')+'</span>'+mix+'</div>'+
+    '<div class="s-item"><span class="s-lbl">Venda empenhada</span><span class="s-val emp">'+(hasEmp?fq(emp):'N/D')+'</span>'+(est>0&&hasEmp?'<span class="s-note">'+fpct(emp/est)+' do estoque</span>':'')+'</div>'+
+    '<div class="s-item"><span class="s-lbl">Estoque disponível</span><span class="s-val">'+(ws.length?fq(disp):'N/D')+'</span>'+(est>0?'<span class="s-note">'+fpct(Math.max(0,disp)/est)+' livre</span>':'')+'</div>'+
+    '<button type="button" class="s-item s-alert'+(per?' on':'')+'" data-seg="perigo"><span class="s-lbl">Em perigo · até '+S.settings.limite+' dias</span><span class="s-val">'+fi(per)+'</span><span class="s-note">'+(per?'ver produtos':'nenhum produto')+'</span></button>';
+}
+function renderSeg(){
+  const all=S.model.mats, f=S.filters;
+  const q=norm(f.q), base=all.filter(m=>(!q||norm(m.codigo+' '+m.descricao).includes(q))&&(!f.cat||(m.categoria||'__nd')===f.cat));
+  const c=k=>k?base.filter(m=>m.risk===k).length:base.length;
+  const opts=[['','Todos'],['perigo','Perigo'],['normal','Normal'],['semdados','Sem consumo']];
+  $('#seg').innerHTML=opts.map(([k,l])=>'<button type="button" role="tab" aria-selected="'+(f.risco===k)+'" class="'+(k==='perigo'?'is-danger':'')+'" data-seg="'+k+'">'+l+'<b>'+fi(c(k))+'</b></button>').join('');
+  const so=[['cob|1','Menos dias primeiro'],['cob|-1','Mais dias primeiro'],['material|1','Nome (A–Z)'],['estoque|-1','Maior estoque'],['empenhado|-1','Maior venda empenhada'],['disponivel|1','Menor disponível']];
+  const cur=S.sort.mat.k+'|'+S.sort.mat.d; selOpts($('#f-sort'),so,cur);
+}
+function renderCards(fm){
+  const cols=COLS.mat, rows=sortRows(fm,cols,S.sort.mat);
+  const ps=S.pageSize==='all'?Math.max(rows.length,1):S.pageSize, pages=Math.max(1,Math.ceil(rows.length/ps));
+  if(S.page>pages) S.page=pages;
+  const view=rows.slice((S.page-1)*ps,S.page*ps);
+  $('#plist').innerHTML=view.length?view.map(m=>{
+    const st=sitOf(m), un=m.unidade?' '+esc(m.unidade):'';
+    const e=m.estoque, emp=m.empenhado||0;
+    const pe=e>0?Math.min(100,emp/e*100):0;
+    const neg=m.disponivel!=null&&m.disponivel<0;
+    const meta=[m.codigo,m.categoria].filter(Boolean).map(esc).join(' · ');
+    return '<button type="button" class="pc '+st.cls+'" data-mat="'+esc(m.key)+'">'+
+      '<span class="pc-top"><span class="pc-name"><b>'+esc(m.descricao||m.codigo||'Não informado')+'</b><small>'+meta+'</small></span>'+
+      '<span class="pc-days"><span class="pc-num">'+st.num+(st.unit?'<small>'+st.unit+'</small>':'')+'</span><span class="pc-sit">'+esc(st.label)+'</span></span></span>'+
+      '<span class="pc-figs">'+
+        '<span><small>Estoque</small><b>'+(e==null?'N/D':fq(e)+'<i>'+un+'</i>')+'</b></span>'+
+        '<span><small>Venda empenhada</small><b class="emp">'+(m.empenhado==null?'N/D':fq(m.empenhado))+'</b></span>'+
+        '<span><small>Disponível</small><b class="'+(neg?'neg':'')+'">'+(m.disponivel==null?'N/D':fq(m.disponivel))+'</b></span>'+
+      '</span>'+
+    '</button>';
+  }).join(''):'<p class="plist-empty">Nenhum produto encontrado com esses filtros.</p>';
+  $('#pager').innerHTML=rows.length>ps?'<span>'+((S.page-1)*ps+1)+'–'+Math.min(rows.length,S.page*ps)+' de '+fi(rows.length)+'</span><span class="pg"><button class="btn sm" type="button" data-pg="prev"'+(S.page<=1?' disabled':'')+'>Anterior</button><button class="btn sm" type="button" data-pg="next"'+(S.page>=pages?' disabled':'')+'>Próxima</button></span>':(rows.length?'<span>'+fi(rows.length)+' '+(rows.length===1?'produto':'produtos')+'</span>':'');
+}
+
 /* ================= main refresh ================= */
 function refresh(opts){
   const M=S.model; const has=M&&S.tables.length&&M.mats.length;
   $('#empty').hidden=!!has; $('#dash').hidden=!has;
-  $('#upd').innerHTML='<span>Última atualização</span><b>'+(S.updatedAt?fd(S.updatedAt)+' às '+ft(S.updatedAt):'—')+'</b>';
+  $('#upd').textContent=S.updatedAt?'Atualizado em '+fd(S.updatedAt)+' às '+ft(S.updatedAt):'Nenhum dado carregado';
   renderBell();
   if(!has){ $('#banners').innerHTML=''; const n=$('#notif'); if(n) n.remove(); return; }
   const fm=filteredMats(), vos=visibleOS(fm);
-  renderBanners(fm); renderFilterControls(); renderKPIs(fm,vos); renderPerigo(fm); renderTable(fm,vos);
+  renderBanners(fm); renderFilterControls(); renderSummary(fm); renderSeg(); renderCards(fm);
 }
 function recompute(notify){ buildModel(); S.page=1; refresh({notify}); }
 
@@ -1540,6 +1680,7 @@ document.addEventListener('click',e=>{
     else if(k==='est'){ S.tab='mat'; S.sort.mat={k:'estoque',d:-1}; }
     else if(k==='disp'){ S.tab='mat'; S.sort.mat={k:'disponivel',d:1}; }
     S.page=1; refresh(); return; }
+  const sg=t.closest('[data-seg]'); if(sg){ const k=sg.dataset.seg; S.filters.risco=(S.filters.risco===k&&k)?'':k; S.filters.alert=''; S.page=1; refresh(); return; }
   const rk=t.closest('[data-risco]'); if(rk){ const k=rk.dataset.risco; S.filters.risco=S.filters.risco===k?'':k; S.page=1; refresh(); return; }
   const stg=t.closest('[data-etapa]'); if(stg){ const s=stg.dataset.etapa; S.filters.etapa=S.filters.etapa===s?'':s; S.page=1; refresh(); return; }
   const cl=t.closest('[data-clear]'); if(cl){ S.filters[cl.dataset.clear]=''; S.page=1; refresh(); return; }
@@ -1569,6 +1710,7 @@ document.addEventListener('change',e=>{
   const t=e.target;
   const map={'f-cat':'cat','f-status':'status','f-risco':'risco','f-etapa':'etapa','f-prod':'prod','f-mov':'mov','f-periodo':'periodo'};
   if(map[t.id]){ S.filters[map[t.id]]=t.value; S.page=1; refresh(); return; }
+  if(t.id==='f-sort'){ const [k,d]=t.value.split('|'); S.sort.mat={k,d:+d}; S.page=1; refresh(); return; }
   if(t.id==='pg-size'){ S.pageSize=t.value==='all'?'all':+t.value; S.page=1; refresh(); return; }
   if(t.id==='t-periodo'){ S.settings.periodo=t.value; lsSet(LS_SET,JSON.stringify(S.settings)); recompute(false); return; }
   if(t.id==='file-in'){ const fl=t.files; if(fl&&fl.length){ if(!$('#imp')) openImport(fl); else addFiles(fl); } t.value=''; return; }
